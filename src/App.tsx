@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import type { Country } from "react-phone-number-input";
@@ -50,7 +50,7 @@ export default function App() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-4 max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md"
+      className="flex flex-col gap-4 max-w-md mx-auto bg-gray-100 rounded-lg shadow-md"
     >
       <div>
         <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">
@@ -78,7 +78,7 @@ export default function App() {
               defaultCountry={country}
               international
               onCountryChange={handleCountryChange}
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full border border-gray-300 rounded hover:shadow-sm placeholder:!text-gray-400 duration-300"
             />
           )}
         />
@@ -86,12 +86,7 @@ export default function App() {
           <p className="mt-1 text-sm text-red-600">{errors.phoneNumber.message}</p>
         )}
       </div>
-      <button 
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Submit
-      </button>
+    
       {submitStatus && <p className="text-green-600">{submitStatus}</p>}
     </form>
   );
